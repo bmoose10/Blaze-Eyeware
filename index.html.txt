@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- ====== BASIC META ====== -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BLAZE Eyewear | Luxury Designer Sunglasses & Frames</title>
+
+<!-- ====== SEO OPTIMIZATION ====== -->
+<meta name="description" content="Blaze Eyewear — luxury eyewear for the bold. Handcrafted designer sunglasses & optical frames made from premium materials. Shop now for timeless style and modern sophistication." />
+<meta name="keywords" content="luxury eyewear, designer sunglasses, Blaze Eyewear, premium sunglasses, optical frames, modern eyewear, fashion accessories" />
+<meta name="author" content="BLAZE Eyewear" />
+
+<!-- ====== SOCIAL MEDIA PREVIEWS ====== -->
+<meta property="og:title" content="BLAZE Eyewear | Luxury Vision for the Bold" />
+<meta property="og:description" content="Handcrafted premium eyewear that defines luxury, innovation, and confidence." />
+<meta property="og:image" content="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1200&q=80" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://yourwebsite.com" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="BLAZE Eyewear | Luxury Vision for the Bold" />
+<meta name="twitter:description" content="Luxury eyewear handcrafted for bold visionaries. Discover Blaze." />
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1200&q=80" />
+
+<!-- ====== FAVICON (optional) ====== -->
+<link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/a/a4/Eyeglasses_icon.svg" type="image/svg+xml">
+
+<style>
+/* GLOBAL STYLES (same as before, trimmed for brevity) */
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; font-family:'Poppins',sans-serif; }
+body { background:#000; color:#fff; overflow-x:hidden; }
+
+header {
+position:fixed; top:0; width:100%; background:rgba(0,0,0,0.9);
+display:flex; justify-content:space-between; align-items:center;
+padding:15px 50px; z-index:1000; border-bottom:1px solid #ff0000;
+transition:all .4s ease;
+}
+header.scrolled { background:rgba(0,0,0,0.98); box-shadow:0 2px 8px rgba(255,0,0,.25); }
+
+.logo {
+display:flex; align-items:center; gap:10px;
+animation: fadeInDown 1.2s ease;
+}
+.logo img {
+width:45px; height:45px; object-fit:contain;
+filter:drop-shadow(0 0 8px rgba(255,0,0,0.6));
+}
+.logo span {
+color:#ff0000; font-size:1.6rem; font-weight:700; letter-spacing:3px;
+}
+
+nav a {
+color:#fff; text-decoration:none; margin:0 15px; font-size:1rem;
+transition:color .3s ease, transform .3s ease;
+}
+nav a:hover { color:#ff0000; transform:scale(1.1); }
+
+section {
+min-height:100vh; padding:120px 60px; display:flex;
+flex-direction:column; justify-content:center;
+opacity:0; transform:translateY(60px);
+transition:all 1.2s cubic-bezier(.25,.1,.25,1);
+}
+section.visible { opacity:1; transform:translateY(0); }
+
+/* HERO SECTION */
+#home {
+background:url('https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1500&q=80') no-repeat center/cover;
+text-align:center; position:relative;
+}
+#home::after { content:""; position:absolute; inset:0; background:rgba(0,0,0,.65); }
+#home .content { position:relative; z-index:1; animation:fadeInUp 1.5s ease; }
+#home h2 { font-size:3rem; letter-spacing:5px; margin-bottom:20px; text-shadow:0 0 20px rgba(255,0,0,.5); }
+#home p { font-size:1.2rem; max-width:600px; margin:0 auto 30px; color:#ccc; }
+.btn {
+display:inline-block; background:#ff0000; color:#fff; padding:12px 30px; border:none;
+border-radius:4px; text-transform:uppercase; font-weight:600;
+transition:background .3s, transform .3s, box-shadow .3s; cursor:pointer;
+}
+.btn:hover { background:#cc0000; transform:translateY(-2px); box-shadow:0 0 15px rgba(255,0,0,.5); }
+
+/* SHOP */
+#shop { background:#111; text-align:center; }
+#shop h2 { color:#ff0000; margin-bottom:40px; font-size:2rem; }
+.products { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
+.product {
+background:#000; border:1px solid #222; border-radius:8px; width:300px; padding:20px;
+text-align:center; transition:transform .5s, box-shadow .5s, opacity 1s;
+opacity:0; transform:translateY(30px);
+}
+.product.visible { opacity:1; transform:translateY(0); }
+.product:hover { transform:translateY(-8px); box-shadow:0 8px 25px rgba(255,0,0,.25); }
+.product img { width:100%; border-radius:8px; margin-bottom:15px; transition:transform .3s ease; }
+.product:hover img { transform:scale(1.05); }
+
+/* ABOUT */
+#about { background:#000; text-align:center; }
+#about h2 { color:#ff0000; margin-bottom:30px; font-size:2rem; }
+#about p { max-width:800px; margin:0 auto; line-height:1.6; color:#ccc; }
+
+/* CONTACT */
+#contact { background:#111; text-align:center; }
+#contact h2 { color:#ff0000; margin-bottom:30px; font-size:2rem; }
+form { max-width:500px; margin:0 auto; display:flex; flex-direction:column; gap:15px; }
+input, textarea { padding:12px; border:1px solid #444; border-radius:5px; background:#000; color:#fff; }
+
+footer { background:#000; border-top:1px solid #ff0000; text-align:center; padding:20px; color:#777; }
+
+/* BACK TO TOP BUTTON */
+#backToTop {
+position:fixed; bottom:30px; right:30px;
+background:#ff0000; color:#fff; border:none;
+padding:12px 16px; border-radius:50%; font-size:20px; cursor:pointer;
+opacity:0; visibility:hidden; transition:all .4s ease;
+box-shadow:0 0 15px rgba(255,0,0,.4); z-index:999;
+}
+#backToTop.show { opacity:1; visibility:visible; }
+#backToTop:hover { transform:scale(1.1); box-shadow:0 0 25px rgba(255,0,0,.6); }
+
+@media (max-width:768px) {
+header { flex-direction:column; padding:15px; }
+nav { margin-top:10px; }
+section { padding:90px 20px; }
+#home h2 { font-size:2rem; }
+}
+
+/* ANIMATIONS */
+@keyframes fadeInUp { from{opacity:0; transform:translateY(40px);} to{opacity:1; transform:translateY(0);} }
+@keyframes fadeInDown { from{opacity:0; transform:translateY(-20px);} to{opacity:1; transform:translateY(0);} }
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header>
+<div class="logo">
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Eyeglasses_icon.svg" alt="Blaze Logo">
+<span>BLAZE</span>
+</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#shop">Shop</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="visible">
+<div class="content">
+<h2>Luxury Eyewear for the Bold</h2>
+<p>Discover Blaze — a statement of confidence, style, and craftsmanship. Designed for those who see beyond ordinary.</p>
+<a href="#shop" class="btn">Shop Now</a>
+</div>
+</section>
+
+<!-- SHOP -->
+<section id="shop">
+<h2>Our Collection</h2>
+<div class="products">
+<div class="product">
+<img src="https://images.unsplash.com/photo-1606813902634-9aef2d2c7a9b?auto=format&fit=crop&w=800&q=80" alt="Blaze Classic">
+<h3>Blaze Classic</h3>
+<p>Timeless black frame with a modern edge.</p>
+<button class="btn" onclick="demoCheckout()">Buy Now</button>
+</div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1591076482161-1ee0e65f60df?auto=format&fit=crop&w=800&q=80" alt="Blaze Redline">
+<h3>Blaze Redline</h3>
+<p>Signature red detail for a bold statement.</p>
+<button class="btn" onclick="demoCheckout()">Buy Now</button>
+</div>
+<div class="product">
+<img src="https://images.unsplash.com/photo-1591076482160-5d66b68e36e9?auto=format&fit=crop&w=800&q=80" alt="Blaze Titanium">
+<h3>Blaze Titanium</h3>
+<p>Lightweight luxury with unmatched clarity.</p>
+<button class="btn" onclick="demoCheckout()">Buy Now</button>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<h2>About Blaze</h2>
+<p>
+Blaze is a luxury eyewear brand redefining sophistication through bold design and uncompromising quality.
+Our frames are handcrafted from premium materials, blending artistry with innovation.
+Each pair is not just eyewear — it's a statement of confidence.
+</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact Us</h2>
+<form onsubmit="return demoSubmit(event)">
+<input type="text" placeholder="Your Name" required />
+<input type="email" placeholder="Your Email" required />
+<textarea rows="5" placeholder="Your Message" required></textarea>
+<button type="submit" class="btn">Send Message</button>
+</form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<p>© 2025 Blaze Eyewear. All Rights Reserved.</p>
+</footer>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="backToTop" onclick="scrollToTop()">↑</button>
+
+<script>
+const sections = document.querySelectorAll("section");
+const products = document.querySelectorAll(".product");
+const header = document.querySelector("header");
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", () => {
+let scrollTop = window.scrollY;
+header.classList.toggle("scrolled", scrollTop > 50);
+backToTop.classList.toggle("show", scrollTop > 400);
+
+sections.forEach(sec => {
+const top = sec.getBoundingClientRect().top;
+if (top < window.innerHeight - 150) sec.classList.add("visible");
+});
+products.forEach(prod => {
+const top = prod.getBoundingClientRect().top;
+if (top < window.innerHeight - 100) prod.classList.add("visible");
+});
+});
+
+function demoCheckout() {
+alert("🕶️ Demo Mode: Checkout coming soon!");
+}
+
+function demoSubmit(e) {
+e.preventDefault();
+alert("✅ Thank you for reaching out! We’ll get back to you shortly.");
+}
+
+function scrollToTop() {
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
